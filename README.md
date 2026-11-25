@@ -33,5 +33,5 @@ Add these three things to the live site:
 
 ## Links
 
-- **Button:** "Try FileLabelPro" goes to `https://filelabelpro.collegeproduce.com/try`
+- **Button:** "Claim offer" goes to `https://filelabelpro.collegeproduce.com/try`
 - **Terms:** "See terms" goes to `https://collegeproduce.com/file-labelpro/terms`. Point it at offer-specific terms if you have them.
