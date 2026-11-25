@@ -1,0 +1,27 @@
+<!-- ===== Black Friday pop-up =====
+     Needs popup.css and popup.js. Change data-ends to move the end time.
+     Opens 3 seconds after the page loads, on every visit and refresh. Add ?bfpopup=1 to the address to test. -->
+<div class="flp-pop" data-ends="2026-11-30T23:59:59-05:00" hidden>
+  <div class="flp-pop__card" role="dialog" aria-modal="true" aria-labelledby="flp-pop-title" tabindex="-1">
+    <span class="flp-pop__handle" aria-hidden="true"></span>
+    <button type="button" class="flp-pop__close" aria-label="Close" data-pop-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <span class="flp-pop__tag">Black Friday</span>
+    <h2 id="flp-pop-title" class="flp-pop__title">Pay for 6 months. <span class="flp-pop__accent">Get 12.</span></h2>
+    <p class="flp-pop__support"><strong>$59.94 for 12 months.</strong> One payment.</p>
+    <div class="flp-pop__timer" aria-label="Time left in the offer">
+      <span class="flp-pop__timer-label">Ends Cyber Monday</span>
+      <div class="flp-pop__tiles">
+        <div class="flp-pop__tile"><span class="flp-pop__num" data-unit="d">00</span><span class="flp-pop__unit">days</span></div>
+        <div class="flp-pop__tile"><span class="flp-pop__num" data-unit="h">00</span><span class="flp-pop__unit">hrs</span></div>
+        <div class="flp-pop__tile"><span class="flp-pop__num" data-unit="m">00</span><span class="flp-pop__unit">min</span></div>
+        <div class="flp-pop__tile flp-pop__tile--sec"><span class="flp-pop__num" data-unit="s">00</span><span class="flp-pop__unit">sec</span></div>
+      </div>
+    </div>
+    <a class="flp-pop__cta" href="https://filelabelpro.collegeproduce.com/try">Try FileLabelPro</a>
+    <button type="button" class="flp-pop__dismiss" data-pop-close>Not now</button>
+    <p class="flp-pop__terms">Offer terms apply. <a href="https://collegeproduce.com/file-labelpro/terms">See terms.</a></p>
+  </div>
+</div>
+<!-- ===== End Black Friday pop-up ===== -->

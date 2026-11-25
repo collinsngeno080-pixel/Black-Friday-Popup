@@ -1,0 +1,162 @@
+/* FileLabelPro Black Friday pop-up
+   Desktop: centered card. Under 640px: a sheet that slides up from the bottom.
+   The page behind is blurred and dimmed. */
+
+.flp-pop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10, 17, 32, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-family: 'Montserrat', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility 0s linear .25s;
+}
+.flp-pop.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .25s ease, visibility 0s;
+}
+html.flp-pop-lock, html.flp-pop-lock body { overflow: hidden; }
+
+.flp-pop__card {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: #0F1729;
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: 48px 44px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  transform: translateY(12px) scale(.98);
+  transition: transform .3s cubic-bezier(.2, .8, .2, 1);
+}
+.flp-pop.is-open .flp-pop__card { transform: none; }
+.flp-pop__card:focus { outline: none; }
+
+.flp-pop__handle { display: none; }
+
+.flp-pop__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: #1E2A44;
+  color: #C2CCD8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color .15s;
+}
+.flp-pop__close:hover { background: #2A3858; color: #FFFFFF; }
+.flp-pop__close svg { width: 18px; height: 18px; }
+
+.flp-pop__tag {
+  color: #FF6B2B;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+}
+.flp-pop__title {
+  margin: 18px 0 0;
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.flp-pop__accent { color: #FF6B2B; white-space: nowrap; }
+.flp-pop__support { margin: 14px 0 0; font-size: 17px; color: #C2CCD8; }
+.flp-pop__support strong { color: #FFFFFF; }
+
+.flp-pop__timer { margin-top: 28px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.flp-pop__timer-label { font-size: 13px; color: #C2CCD8; }
+.flp-pop__tiles { display: flex; gap: 8px; }
+.flp-pop__tile {
+  width: 72px;
+  height: 72px;
+  background: #1E2A44;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.flp-pop__num { font-size: 30px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.flp-pop__tile--sec .flp-pop__num { color: #FF6B2B; }
+.flp-pop__unit { font-size: 11px; color: #94A3B8; margin-top: 4px; }
+
+.flp-pop__cta {
+  margin-top: 30px;
+  width: 100%;
+  height: 56px;
+  border-radius: 999px;
+  background: #FF6B2B;
+  color: #FFFFFF;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .15s;
+}
+.flp-pop__cta:hover { background: #E05A20; color: #FFFFFF; }
+.flp-pop__dismiss {
+  margin-top: 6px;
+  height: 44px;
+  padding: 0 16px;
+  border: 0;
+  background: none;
+  color: #C2CCD8;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.flp-pop__dismiss:hover { color: #FFFFFF; text-decoration: underline; }
+.flp-pop__terms { margin-top: 6px; font-size: 12px; color: #94A3B8; }
+.flp-pop__terms a { color: #FF6B2B; }
+.flp-pop a:focus-visible, .flp-pop button:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+
+/* ---------- Phones: bottom sheet ---------- */
+@media (max-width: 640px) {
+  .flp-pop { align-items: flex-end; padding: 0; }
+  .flp-pop__card {
+    max-width: none;
+    max-height: 92vh;
+    border-radius: 24px 24px 0 0;
+    padding: 14px 24px calc(24px + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+  }
+  .flp-pop__handle { display: block; width: 40px; height: 4px; border-radius: 999px; background: #33415C; }
+  .flp-pop__close { top: 10px; right: 10px; }
+  .flp-pop__tag { margin-top: 22px; font-size: 22px; }
+  .flp-pop__title { margin-top: 14px; font-size: 32px; }
+  .flp-pop__support { margin-top: 10px; font-size: 15px; }
+  .flp-pop__timer { margin-top: 20px; gap: 8px; }
+  .flp-pop__tile { width: 60px; height: 60px; border-radius: 10px; }
+  .flp-pop__num { font-size: 24px; }
+  .flp-pop__unit { font-size: 10px; }
+  .flp-pop__cta { margin-top: 24px; height: 52px; font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flp-pop, .flp-pop__card { transition: none; }
+}
